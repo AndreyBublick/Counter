@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AndreyBublick/Counter/static/css/main.f855e6bc.css",
+    "main.js": "/AndreyBublick/Counter/static/js/main.8debebe7.js",
+    "static/js/787.6658d8b7.chunk.js": "/AndreyBublick/Counter/static/js/787.6658d8b7.chunk.js",
+    "index.html": "/AndreyBublick/Counter/index.html",
+    "main.f855e6bc.css.map": "/AndreyBublick/Counter/static/css/main.f855e6bc.css.map",
+    "main.8debebe7.js.map": "/AndreyBublick/Counter/static/js/main.8debebe7.js.map",
+    "787.6658d8b7.chunk.js.map": "/AndreyBublick/Counter/static/js/787.6658d8b7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.8debebe7.js"
+  ]
+}
