@@ -28,7 +28,15 @@ const CardStyled = styled.div`
         border-radius: 0.5rem;
         border: 4px solid ${(props) => props.theme.colors.accent};
         padding: 20px 5px;
+        
     }
+    &>div:first-child {
+        flex: 1;
+        display: flex;
+        gap: ${props => props.theme.spacings.big};
+        align-items: center;
+        justify-content: center;
+    };
 
 `;
 

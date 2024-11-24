@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="added logic">
+    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="refator Section">
+      <change afterPath="$PROJECT_DIR$/src/utils/getMaxValue.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/getMinValue.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/Card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,18 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "AndreyBublick"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AndreyBublick&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AndreyBublick/Counter.git",
-    "accountId": "56031a61-53e0-468e-95e8-f61d70cb5f3c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AndreyBublick/Counter.git&quot;,
+    &quot;accountId&quot;: &quot;56031a61-53e0-468e-95e8-f61d70cb5f3c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -49,6 +53,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/i_use/Desktop/IT-INCUBATOR/tasks/Counter/src/utils",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,7 +80,7 @@
       <updated>1732350620345</updated>
       <workItem from="1732350621625" duration="169000" />
       <workItem from="1732350800435" duration="2154000" />
-      <workItem from="1732355087737" duration="42663000" />
+      <workItem from="1732355087737" duration="46477000" />
     </task>
     <task id="LOCAL-00001" summary="addition++">
       <option name="closed" value="true" />
@@ -109,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732441526983</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ready наверное">
+      <option name="closed" value="true" />
+      <created>1732449935909</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732449935909</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +156,9 @@
     <MESSAGE value="change homepage" />
     <MESSAGE value="added validation" />
     <MESSAGE value="added logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="added logic" />
+    <MESSAGE value="ready наверное" />
+    <MESSAGE value="added style and load" />
+    <MESSAGE value="refator Section" />
+    <option name="LAST_COMMIT_MESSAGE" value="refator Section" />
   </component>
 </project>
