@@ -19,7 +19,7 @@ export const CounterSection = () => {
     const [error, setError] = useState<string | null>(null);
     const [isMaximumValueAchieved, setIsMaximumValueAchieved] = useState<boolean>(false);
 
-    const [isActiveSetButton, setIsActiveSetButton] = useState<boolean>(false);
+    const [isActiveSetButton, setIsActiveSetButton] = useState<boolean>(true);
 
 
 
@@ -106,6 +106,9 @@ export const CounterSection = () => {
         } : fieldData));
 
     };
+
+
+
     const onClickIncrement = useCallback(() => {
         const max = valueFields.find(f => f.id === maxValueId);
 
@@ -123,7 +126,8 @@ export const CounterSection = () => {
 
         const value:number = JSON.parse(localStorage.getItem('minValue') as string );
 
-        value &&  setCounter(value);
+        value &&  setCounter(value) || value===0 &&  setCounter(value);
+
 
         localStorage.setItem('valueCount', JSON.stringify(value));
 
@@ -148,6 +152,10 @@ export const CounterSection = () => {
 
     },[valueFields]);
 
+    const checkErrorValue = useCallback(()=>{
+      /*  error ? setIsActiveSetButton(true) : setIsActiveSetButton(false);*/
+        setIsActiveSetButton(false);
+    },[error]);
 
     useEffect(() => {
 
@@ -170,16 +178,40 @@ export const CounterSection = () => {
 
         ((min && max) && (min.value >= max.value)) && setValueFields(prev => prev.map(f => ({...f, isDisabled: true})));
     }, []);
+
+    /*//////////////////////////////////////////////////////////////////////////*/
+    /*//////////////////////////////////////////////////////////////////////////*/
+    /*//////////////////////////////////////////////////////////////////////////*/
+    /*useEffect(() => {
+
+        /!*const min = valueFields.find(f => f.id === minValueId);
+
+
+        if( (min) && (min.value===counter)) {
+            setIsActiveSetButton(true);
+        }
+        else{*!/
+        error ? setIsActiveSetButton(true) : setIsActiveSetButton(false);
+
+        /!*}*!/
+
+
+
+
+    }, [valueFields, error]);*/
+    /*//////////////////////////////////////////////////////////////////////////*/
+    /*//////////////////////////////////////////////////////////////////////////*/
+    /*//////////////////////////////////////////////////////////////////////////*/
+
+
     useEffect(() => {
 
         if(  localStorage.getItem('valueCount')===localStorage.getItem('minValue')){
             setIsActiveSetButton(true);
         }
-        else{
-            error ? setIsActiveSetButton(true) : setIsActiveSetButton(false);
-        }
 
-    }, [valueFields, error]);
+
+    }, []);
 
 
 
@@ -222,6 +254,7 @@ export const CounterSection = () => {
                                 changeDisabledField={changeDisabledField}
                                 changeValueField={changeValueField}
                                 /*getIsMinMoreMax={getIsMinMoreMax}*/
+                                checkErrorValue={checkErrorValue}
                                 isIncorrectValue={isIncorrectValue}
                                 id={field.id}
                                 type="number"
@@ -240,13 +273,16 @@ export const CounterSection = () => {
                     </ButtonsWrapper>
                 </Card>
                 <Card>
-                    <Counter
-                        isMaximumValueAchieved={isMaximumValueAchieved&&!error}>{(isIncorrectValue) ? (error && error) : counter}</Counter>
+                     <Counter
+                        isError={isMaximumValueAchieved||!!error||!isActiveSetButton}>
+                         { (isIncorrectValue) ? (error && error) : isActiveSetButton ? counter : 'click set Button'}
+                     </Counter>
+                    {/*isActiveSetButton ?(*/}{/*: 'click set Button'*/}
                     <ButtonsWrapper>
 
-                        <Button disabled={isIncorrectValue || isMaximumValueAchieved}
+                        <Button disabled={isIncorrectValue || isMaximumValueAchieved ||!isActiveSetButton}
                                 onClick={onClickIncrement}>inc</Button>
-                        <Button onClick={onClickReset} disabled={isIncorrectValue}>reset</Button>
+                        <Button onClick={onClickReset} disabled={isIncorrectValue||!isActiveSetButton}>reset</Button>
                     </ButtonsWrapper>
                 </Card>
             </FlexWrapper>
@@ -305,7 +341,7 @@ const CounterSectionStyled = styled.section`
 
     }
 `;
-const Counter = styled.span<{ isMaximumValueAchieved: boolean }>`
+const Counter = styled.span<{ isError: boolean,color?:string }>`
     flex: 1;
     border: 4px solid ${props => props.theme.colors.accent};
     border-radius: ${props => props.theme.spacings.middle};
@@ -316,7 +352,11 @@ const Counter = styled.span<{ isMaximumValueAchieved: boolean }>`
     justify-content: center;
     align-items: center;
 
-    ${props => props.isMaximumValueAchieved && css<{ isMaximumValueAchieved: boolean }>`
+    ${props => props.isError && css<{ isError: boolean,color?:string }>`
         color: red;
     `};
+
+    
+    
+    
 `;

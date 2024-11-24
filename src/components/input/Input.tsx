@@ -14,7 +14,7 @@ import {useInput} from "../../hooks/useInput";
 type PropsType = {
    /* setIsIncorrectValue: Dispatch<SetStateAction<boolean>>,*/
     isIncorrectValue:boolean,
-
+    checkErrorValue:()=>void,
     changeDisabledField:(id:string,isDisabled:boolean) => void,
     changeValueField:(id:string,value:number) => void,
     id:string,
@@ -63,6 +63,7 @@ export const Input: FC<InputHTMLAttributes<HTMLInputElement> & PropsType> = (pro
 const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
   /*props.getIsMinMoreMax();*/
     onChangedValue(e);
+    props.checkErrorValue();
 };
 
 
