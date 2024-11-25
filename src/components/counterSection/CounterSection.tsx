@@ -171,11 +171,8 @@ export const CounterSection = () => {
 
         /*const max = valueFields.find(f => f.id === maxValueId);*/
 
-        if (max && max.value === counter) {
-            setIsMaximumValueAchieved(true);
-        } else {
-            setIsMaximumValueAchieved(false);
-        }
+         (max && max.value === counter) ? setIsMaximumValueAchieved(true) :  setIsMaximumValueAchieved(false);
+
 
     }, [counter, valueFields]);
 

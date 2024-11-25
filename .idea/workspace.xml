@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="refator Section">
-      <change afterPath="$PROJECT_DIR$/src/utils/getMaxValue.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/getMinValue.ts" afterDir="false" />
+    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="refactor min and max added utils">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +57,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\tasks\Counter\src\utils" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -80,7 +79,7 @@
       <updated>1732350620345</updated>
       <workItem from="1732350621625" duration="169000" />
       <workItem from="1732350800435" duration="2154000" />
-      <workItem from="1732355087737" duration="46477000" />
+      <workItem from="1732355087737" duration="47350000" />
     </task>
     <task id="LOCAL-00001" summary="addition++">
       <option name="closed" value="true" />
@@ -122,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732449935909</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor min and max added utils">
+      <option name="closed" value="true" />
+      <created>1732465514610</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732465514610</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +166,7 @@
     <MESSAGE value="ready наверное" />
     <MESSAGE value="added style and load" />
     <MESSAGE value="refator Section" />
-    <option name="LAST_COMMIT_MESSAGE" value="refator Section" />
+    <MESSAGE value="refactor min and max added utils" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor min and max added utils" />
   </component>
 </project>
