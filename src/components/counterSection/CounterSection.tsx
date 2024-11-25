@@ -126,12 +126,15 @@ export const CounterSection = () => {
         if (!(max && (counter === max.value))) {
 
             setCounter(prev => prev + 1);
-            localStorage.setItem('valueCount', JSON.stringify(counter + 1));
+            /*localStorage.setItem('valueCount', JSON.stringify(counter +1));*/
 
         }
 
 
     }, [counter, valueFields]);
+
+
+
     const onClickReset = useCallback(() => {
 
         const value: number = JSON.parse(localStorage.getItem('minValue') as string);
@@ -255,6 +258,9 @@ export const CounterSection = () => {
 
          max && localStorage.setItem('maxValue', JSON.stringify(max.value));
      }, [valueFields]);*/
+    useEffect(() => {
+        localStorage.setItem('valueCount', JSON.stringify(counter));
+    }, [counter]);
     return <CounterSectionStyled>
         <Container>
             <FlexWrapper>
