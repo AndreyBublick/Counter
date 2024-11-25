@@ -1,13 +1,12 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import styled, {css} from "styled-components";
+import React, {FC, useCallback, useEffect, useMemo, useState} from 'react';
+import styled from "styled-components";
 import {Card} from "../card/Card";
 import {Button} from "../button/Button";
-import {Input} from "../input/Input";
 import {v1} from "uuid";
-import {Spin} from "antd";
-import {LoadingOutlined} from "@ant-design/icons";
 import {getMinValue} from "../../utils/getMinValue";
 import {getMaxValue} from "../../utils/getMaxValue";
+import {CardBodyWithSettings} from "./cardBodyWithSettings/CardBodyWithSettings";
+import {CardBodyOfDisplayCount} from "./cardBodyOfDisplayCount/CardBodyOfDisplayCount";
 
 
 const maxValueId = v1();
@@ -19,19 +18,26 @@ export type valueFieldType = {
     value: number,
 };
 
+type PropsType = {
+    mode2:boolean,
+};
 
-export const CounterSection = () => {
+
+export const CounterSection:FC<PropsType> = ({mode2}) => {
     const [counter, setCounter] = useState(0);
-    const [isLoad, setIsLoad] = useState(false);
+
 
     const [valueFields, setValueFields] = useState([
         {id: maxValueId, title: 'max-value', value: 0},
-        {id: minValueId, title: 'min-value', value: 0}
+        {id: minValueId, title: 'min-value', value: 0},
+
     ]);
     const [error, setError] = useState<string | null>(null);
     const [isMaximumValueAchieved, setIsMaximumValueAchieved] = useState<boolean>(false);
-
     const [isActiveSetButton, setIsActiveSetButton] = useState<boolean>(true);
+
+    const [isOpenDisplayCard, setIsOpenDisplayCard] = useState(false);
+
 
     const min = useMemo(() => {
         return getMinValue(valueFields, minValueId);
@@ -41,84 +47,53 @@ export const CounterSection = () => {
     }, [valueFields]);
 
     const isIncorrectValue = useMemo(() => {
+    if(min && max){
+        const minValue = min.value;
+        const maxValue = max.value;
+        if (maxValue < 0 && minValue < 0) {
+            setError('Максимальное и минимальное не может быть отрицательным');
+            return true;
+        }
+        else if (minValue < 0) {
 
-        /* const isDisabledField = valueFields.find(field => field.isDisabled);
+            setError('Минимальное не может быть отрицательным');
+            return true;
+        }
+        else if (maxValue < 0) {
 
-         return isDisabledField ? isDisabledField.isDisabled : false;*/
-
-
-       /* const max = valueFields.find(f => f.id === maxValueId);
-        const min = valueFields.find(f => f.id === minValueId);*/
-
-
-        let result = (min && max) && min.value >= max.value;
-
-
-        if ((min && max) && min.value > max.value) {
-
+            setError('Максимальное не может быть отрицательным');
+            return true;
+        }
+        if (minValue > maxValue) {
             setError('Минимальное больше максимального');
-
-
-        } else if ((min && max) && min.value === max.value) {
-            /*  setError(result ? 'Минимальное равно максимальному' :null);*/
+            return true;
+        }
+        else if (minValue === maxValue) {
             setError('Минимальное равно максимальному');
-        } else {
-
+            return true;
+        }
+        else {
             setError(null);
-
         }
+    }
+        return false;
+    }, [valueFields]);
 
 
-        if ((min && max) && (max.value < 0 && min.value < 0)) {
-            result = true;
-            setError(result ? 'Максимальное и минимальное не может быть отрицательным' : null);
-
-        } else if (min && min.value < 0) {
-            result = true;
-            setError(result ? 'Минимальное не может быть отрицательным' : null);
-
-        } else if (max && max.value < 0) {
-            result = true;
-            setError(result ? 'Максимальное не может быть отрицательным' : null);
-
-        }
-
-        return result;
-
-    }, [valueFields]) as boolean;
-
-
-    /*const getIsMinMoreMax = useCallback(() => {
-
-          const max = valueFields.find(f=>f.id === maxValueId);
-          const min = valueFields.find(f=>f.id === minValueId);
-
-
-
-
-
-
-            ((min && max) && (min.value>=max.value) ) && setValueFields(prev=>prev.map(f=>({...f,isDisabled:true})));
-
-       }, [valueFields]);*/
-
-
-    const changeDisabledField = (idField: string, newValueDisabled: boolean) => {
+    const changeDisabledField = useCallback((idField: string, newValueDisabled: boolean) => {
         setValueFields(prev => prev.map(fieldData => fieldData.id === idField ? {
             ...fieldData,
             isDisabled: newValueDisabled
         } : fieldData));
 
-    };
-    const changeValueField = (idField: string, newValue: number) => {
+    },[]);
+    const changeValueField = useCallback((idField: string, newValue: number) => {
         setValueFields(prev => prev.map(fieldData => fieldData.id === idField ? {
             ...fieldData,
             value: newValue
         } : fieldData));
 
-    };
-
-
+    },[]);
     const onClickIncrement = useCallback(() => {
         /*const max = valueFields.find(f => f.id === maxValueId);*/
 
@@ -132,9 +107,6 @@ export const CounterSection = () => {
 
 
     }, [counter, valueFields]);
-
-
-
     const onClickReset = useCallback(() => {
 
         const value: number = JSON.parse(localStorage.getItem('minValue') as string);
@@ -146,40 +118,36 @@ export const CounterSection = () => {
 
 
     }, [counter]);
-
     const onClickSetButton = useCallback(() => {
 
-        /*const min = valueFields.find(f => f.id === minValueId);
-        const max = valueFields.find(f => f.id === maxValueId);*/
-
-        const value: number = JSON.parse(localStorage.getItem('minValue') as string);
-        localStorage.setItem('valueCount', JSON.stringify(value));
-
+        if(!mode2 || isOpenDisplayCard){
         (min) && setCounter(min.value);
-
+}
         setIsActiveSetButton(true);
 
 
         min && localStorage.setItem('minValue', JSON.stringify(min.value));
         max && localStorage.setItem('maxValue', JSON.stringify(max.value));
 
-    }, [valueFields]);
 
+        mode2 &&  setIsOpenDisplayCard(prev => !prev);
+
+    }, [valueFields,isOpenDisplayCard]);
     const checkErrorValue = useCallback(() => {
         /*  error ? setIsActiveSetButton(true) : setIsActiveSetButton(false);*/
         setIsActiveSetButton(false);
     }, [error]);
 
+
+
     useEffect(() => {
 
         /*const max = valueFields.find(f => f.id === maxValueId);*/
 
-         (max && max.value === counter) ? setIsMaximumValueAchieved(true) :  setIsMaximumValueAchieved(false);
+        (max && max.value === counter) ? setIsMaximumValueAchieved(true) :  setIsMaximumValueAchieved(false);
 
 
     }, [counter, valueFields]);
-
-
     useEffect(() => {
         /*const max = valueFields.find(f => f.id === maxValueId);
         const min = valueFields.find(f => f.id === minValueId);*/
@@ -187,32 +155,6 @@ export const CounterSection = () => {
 
         ((min && max) && (min.value >= max.value)) && setValueFields(prev => prev.map(f => ({...f, isDisabled: true})));
     }, []);
-
-    /*//////////////////////////////////////////////////////////////////////////*/
-    /*//////////////////////////////////////////////////////////////////////////*/
-    /*//////////////////////////////////////////////////////////////////////////*/
-    /*useEffect(() => {
-
-        /!*const min = valueFields.find(f => f.id === minValueId);
-
-
-        if( (min) && (min.value===counter)) {
-            setIsActiveSetButton(true);
-        }
-        else{*!/
-        error ? setIsActiveSetButton(true) : setIsActiveSetButton(false);
-
-        /!*}*!/
-
-
-
-
-    }, [valueFields, error]);*/
-    /*//////////////////////////////////////////////////////////////////////////*/
-    /*//////////////////////////////////////////////////////////////////////////*/
-    /*//////////////////////////////////////////////////////////////////////////*/
-
-
     useEffect(() => {
 
         if (localStorage.getItem('valueCount') === localStorage.getItem('minValue')) {
@@ -221,15 +163,6 @@ export const CounterSection = () => {
 
 
     }, []);
-
-
-    /*useEffect(() => {
-        localStorage.getItem('valueCount') && setCounter(JSON.parse(localStorage.getItem('valueCount') as string));
-    }, []);*/
-    /* useEffect(() => {
-         localStorage.setItem('valueCount', JSON.stringify(counter));
-     }, [counter]);*/
-
     useEffect(() => {
 
         const minValue = JSON.parse(localStorage.getItem('minValue') as string);
@@ -240,70 +173,29 @@ export const CounterSection = () => {
         setValueFields(prev => prev.map(f => f.id === maxValueId ? {...f, value: maxValue} : f));
         setCounter(valueCount);
 
+        console.log(valueCount);
 
-        setTimeout(() => {
-            setIsLoad(true);
-        }, 1000);
 
     }, []);
-
-
-    /* useEffect(() => {
-         const min = valueFields.find(f => f.id === minValueId);
-
-         min && localStorage.setItem('minValue', JSON.stringify(min.value));
-     }, [valueFields]);
-     useEffect(() => {
-         const max = valueFields.find(f => f.id === maxValueId);
-
-         max && localStorage.setItem('maxValue', JSON.stringify(max.value));
-     }, [valueFields]);*/
     useEffect(() => {
         localStorage.setItem('valueCount', JSON.stringify(counter));
+
     }, [counter]);
+
+
     return <CounterSectionStyled>
         <Container>
             <FlexWrapper>
-                <Card>
-                    {isLoad ?
-                        <InputsWrapper>{valueFields.map(field => <InputWrapper key={field.id}><span>{field.title}</span>
-                            <Input
-                                changeDisabledField={changeDisabledField}
-                                changeValueField={changeValueField}
-                                /*getIsMinMoreMax={getIsMinMoreMax}*/
-                                checkErrorValue={checkErrorValue}
-                                isIncorrectValue={isIncorrectValue}
-                                id={field.id}
-                                type="number"
-                                value={field.value}
-                                /*  isIncorrectValue={isIncorrectValue}
-                                  isDisabled={field.isDisabled}*/
-                            />
-                        </InputWrapper>)}
 
+                {isOpenDisplayCard===mode2 && <Card>
+                    <CardBodyWithSettings checkErrorValue={checkErrorValue} isIncorrectValue={isIncorrectValue} changeDisabledField={changeDisabledField}  changeValueField={changeValueField} onClickSetButton={onClickSetButton} isActiveSetButton={isActiveSetButton} valueFields={valueFields} />
+                </Card>}
 
-                        </InputsWrapper> :
-                        <Spin style={{color: "#05f7ff"}} indicator={<LoadingOutlined spin/>} size="large"/>}
-
-                    <ButtonsWrapper>
-
-                        <Button onClick={onClickSetButton} disabled={isIncorrectValue || isActiveSetButton}>set</Button>
-                    </ButtonsWrapper>
-                </Card>
-                <Card>
-                    {isLoad ? <Counter
-                        isError={isMaximumValueAchieved || !!error || !isActiveSetButton}>
-                        {(isIncorrectValue) ? (error && error) : isActiveSetButton ? counter : 'click set Button'}
-                    </Counter> : <Spin style={{color: "#05f7ff"}} indicator={<LoadingOutlined spin/>} size="large"/>}
-                    {/*isActiveSetButton ?(*/}{/*: 'click set Button'*/}
-                    <ButtonsWrapper>
-
-                        <Button disabled={isIncorrectValue || isMaximumValueAchieved || !isActiveSetButton || !isLoad}
-                                onClick={onClickIncrement}>inc</Button>
-                        <Button onClick={onClickReset}
-                                disabled={isIncorrectValue || !isActiveSetButton || !isLoad}>reset</Button>
-                    </ButtonsWrapper>
-                </Card>
+                {!isOpenDisplayCard &&  <Card>
+                    <CardBodyOfDisplayCount isActiveSetButton={isActiveSetButton} isIncorrectValue={isIncorrectValue} counter={counter} error={error} isMaximumValueAchieved={isMaximumValueAchieved} onClickReset={onClickReset} onClickIncrement={onClickIncrement}>
+                        {mode2 && <Button onClick={onClickSetButton} disabled={false}>set</Button>}
+                    </CardBodyOfDisplayCount>
+                </Card>}
             </FlexWrapper>
         </Container>
     </CounterSectionStyled>
@@ -331,31 +223,6 @@ const FlexWrapper = styled.div`
 
     }
 `;
-
-const ButtonsWrapper = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-`;
-const InputsWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: ${props => props.theme.spacings.big};
-
-`;
-
-const InputWrapper = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: ${props => props.theme.spacings.big};
-
-
-    span {
-        font-size: ${props => props.theme.fontSizes.middle};
-        font-weight: 700;
-        color: ${props => props.theme.colors.accent};
-    }
-`;
 const CounterSectionStyled = styled.section`
 
     input {
@@ -363,22 +230,4 @@ const CounterSectionStyled = styled.section`
 
     }
 `;
-const Counter = styled.span<{ isError: boolean, color?: string }>`
-    flex: 1;
-    border: 4px solid ${props => props.theme.colors.accent};
-    border-radius: ${props => props.theme.spacings.middle};
-    color: ${props => props.theme.colors.accent};
-    font-weight: 700;
-    font-size: ${props => props.theme.fontSizes.big};
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    ${props => props.isError && css<{ isError: boolean, color?: string }>`
-        color: red;
-    `};
-
-
-
-
-`;

@@ -1,10 +1,7 @@
 import React, {
     ChangeEvent,
-    Dispatch,
     FC,
     InputHTMLAttributes,
-    SetStateAction,
-    useCallback,
     useEffect,
     useState
 } from 'react';
@@ -12,7 +9,6 @@ import styled, {css} from "styled-components";
 import {useInput} from "../../hooks/useInput";
 
 type PropsType = {
-   /* setIsIncorrectValue: Dispatch<SetStateAction<boolean>>,*/
     isIncorrectValue:boolean,
     checkErrorValue:()=>void,
     changeDisabledField:(id:string,isDisabled:boolean) => void,
@@ -20,66 +16,30 @@ type PropsType = {
     id:string,
     value:number,
 
-   /* isDisabled:boolean,*/
-   /*getIsMinMoreMax:()=>void,*/
-
 };
 
 
 export const Input: FC<InputHTMLAttributes<HTMLInputElement> & PropsType> = (props) => {
-
     const {value, onChangedValue} = useInput(props.value);
-
     const [isIncorrectValueInput, setIsIncorrectValue] = useState(false);
 
-  /*const changeDisabledFieldHandler =  useCallback(() => {
 
-        if (value < 0) {
-          /!*  setIsIncorrectValue(true);*!/
-           props.changeDisabledField(props.id,true);
-
-        } else {
-            /!*setIsIncorrectValue(false);*!/
-            props.changeDisabledField(props.id,false);
-
-
-        }
-
-    }, [value]);*/
+    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
+        /*props.getIsMinMoreMax();*/
+        onChangedValue(e);
+        props.checkErrorValue();
+    };
 
 
     useEffect(() => {
-        if (value < 0) {
-              setIsIncorrectValue(true);
-            /*props.changeDisabledField(props.id,true);*/
-
-        } else {
-            setIsIncorrectValue(false);
-            /*props.changeDisabledField(props.id,false);*/
-
-
-        }
+        value < 0  ? setIsIncorrectValue(true) : setIsIncorrectValue(false);
     }, [value]);
-const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
-  /*props.getIsMinMoreMax();*/
-    onChangedValue(e);
-    props.checkErrorValue();
-};
-
-
     useEffect(() => {
         props.changeValueField(props.id,value as number);
     }, [value]);
 
-
-
-
-   /* useEffect(()=>{
- props.getIsMinMoreMax();
-    },[props.isIncorrectValue]);*/
-
     return <InputStyled {...props} value={value as number}
-                        isIncorrectValue={props.isIncorrectValue ||isIncorrectValueInput}
+                        isIncorrectValue={props.isIncorrectValue || isIncorrectValueInput}
                         onChange={ onChangeHandler}/>
 };
 

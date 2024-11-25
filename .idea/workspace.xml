@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="mini refactor">
+    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="test refactor added useEffect 'useEffect(() =&gt; {&#10;                                       localStorage.setItem('valueCount', JSON.stringify(counter));&#10;                                   }, [counter]);' и перенесена логика из onClickIncrement в этот useEffect  localStorage.setItem('valueCount', JSON.stringify(counter + 1));">
+      <change afterPath="$PROJECT_DIR$/src/components/ButtonsWrapper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/InputWrapper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/InputsWrapper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyOfDisplayCount/CardBodyOfDisplayCount.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyWithSettings/CardBodyWithSettings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/Card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/Input.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -79,7 +89,7 @@
       <updated>1732350620345</updated>
       <workItem from="1732350621625" duration="169000" />
       <workItem from="1732350800435" duration="2154000" />
-      <workItem from="1732355087737" duration="48147000" />
+      <workItem from="1732355087737" duration="65252000" />
     </task>
     <task id="LOCAL-00001" summary="addition++">
       <option name="closed" value="true" />
@@ -137,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732516906441</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test refactor added useEffect 'useEffect(() =&gt; {&#10;                                       localStorage.setItem('valueCount', JSON.stringify(counter));&#10;                                   }, [counter]);' и перенесена логика из onClickIncrement в этот useEffect  localStorage.setItem('valueCount', JSON.stringify(counter + 1));">
+      <option name="closed" value="true" />
+      <created>1732517340873</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732517340873</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +194,7 @@
     <MESSAGE value="refator Section" />
     <MESSAGE value="refactor min and max added utils" />
     <MESSAGE value="mini refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="mini refactor" />
+    <MESSAGE value="test refactor added useEffect 'useEffect(() =&gt; {&#10;                                       localStorage.setItem('valueCount', JSON.stringify(counter));&#10;                                   }, [counter]);' и перенесена логика из onClickIncrement в этот useEffect  localStorage.setItem('valueCount', JSON.stringify(counter + 1));" />
+    <option name="LAST_COMMIT_MESSAGE" value="test refactor added useEffect 'useEffect(() =&gt; {&#10;                                       localStorage.setItem('valueCount', JSON.stringify(counter));&#10;                                   }, [counter]);' и перенесена логика из onClickIncrement в этот useEffect  localStorage.setItem('valueCount', JSON.stringify(counter + 1));" />
   </component>
 </project>
