@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="test refactor added useEffect 'useEffect(() =&gt; {&#10;                                       localStorage.setItem('valueCount', JSON.stringify(counter));&#10;                                   }, [counter]);' и перенесена логика из onClickIncrement в этот useEffect  localStorage.setItem('valueCount', JSON.stringify(counter + 1));">
-      <change afterPath="$PROJECT_DIR$/src/components/ButtonsWrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/InputWrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/InputsWrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyOfDisplayCount/CardBodyOfDisplayCount.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyWithSettings/CardBodyWithSettings.tsx" afterDir="false" />
+    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="added 2 button choices + refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/Input.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,20 +44,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/i_use/Desktop/IT-INCUBATOR/tasks/Counter/src/utils",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\i_use\\Desktop\\IT-INCUBATOR\\tasks\\Counter\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/i_use/Desktop/IT-INCUBATOR/tasks/Counter/src/utils&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\i_use\\Desktop\\IT-INCUBATOR\\2sprint\\Microtasks\\Counter\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\tasks\Counter\src\utils" />
@@ -90,6 +81,10 @@
       <workItem from="1732350621625" duration="169000" />
       <workItem from="1732350800435" duration="2154000" />
       <workItem from="1732355087737" duration="65252000" />
+      <workItem from="1732551926812" duration="375000" />
+      <workItem from="1732815538319" duration="97000" />
+      <workItem from="1733390455025" duration="2860000" />
+      <workItem from="1733393393374" duration="611000" />
     </task>
     <task id="LOCAL-00001" summary="addition++">
       <option name="closed" value="true" />
