@@ -7,6 +7,7 @@ import {valueFieldType} from "../CounterSection";
 import {ButtonsWrapper} from "../../ButtonsWrapper";
 import {InputsWrapper} from "../../InputsWrapper";
 import {InputWrapper} from "../../InputWrapper";
+import {useLoading} from "../../../hooks/useLoading";
 
 
 type PropsType = {
@@ -22,12 +23,8 @@ type PropsType = {
 };
 
 export const CardBodyWithSettings: FC<PropsType> = ({valueFields,changeDisabledField, changeValueField, checkErrorValue, isIncorrectValue, onClickSetButton, isActiveSetButton}) => {
-    const [isLoad, setIsLoad] = useState(false);
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoad(true);
-        }, 1000);
-    }, []);
+
+    const {isLoad} = useLoading();
 
     return <>
         {isLoad ?

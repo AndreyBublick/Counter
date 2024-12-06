@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="added 2 button choices + refactor">
+    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="added sessionStorage">
+      <change afterPath="$PROJECT_DIR$/src/hooks/useLoading.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/counterSection/cardBodyWithSettings/CardBodyWithSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyWithSettings/CardBodyWithSettings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/Input.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +65,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\tasks\Counter\src\utils" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\2sprint\Microtasks\Counter\src\hooks" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -84,7 +90,9 @@
       <workItem from="1732551926812" duration="375000" />
       <workItem from="1732815538319" duration="97000" />
       <workItem from="1733390455025" duration="2860000" />
-      <workItem from="1733393393374" duration="611000" />
+      <workItem from="1733393393374" duration="1890000" />
+      <workItem from="1733475542732" duration="864000" />
+      <workItem from="1733494866669" duration="2875000" />
     </task>
     <task id="LOCAL-00001" summary="addition++">
       <option name="closed" value="true" />
@@ -150,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732517340873</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added sessionStorage">
+      <option name="closed" value="true" />
+      <created>1733394116226</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733394116226</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +206,7 @@
     <MESSAGE value="refactor min and max added utils" />
     <MESSAGE value="mini refactor" />
     <MESSAGE value="test refactor added useEffect 'useEffect(() =&gt; {&#10;                                       localStorage.setItem('valueCount', JSON.stringify(counter));&#10;                                   }, [counter]);' и перенесена логика из onClickIncrement в этот useEffect  localStorage.setItem('valueCount', JSON.stringify(counter + 1));" />
-    <option name="LAST_COMMIT_MESSAGE" value="test refactor added useEffect 'useEffect(() =&gt; {&#10;                                       localStorage.setItem('valueCount', JSON.stringify(counter));&#10;                                   }, [counter]);' и перенесена логика из onClickIncrement в этот useEffect  localStorage.setItem('valueCount', JSON.stringify(counter + 1));" />
+    <MESSAGE value="added sessionStorage" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sessionStorage" />
   </component>
 </project>
