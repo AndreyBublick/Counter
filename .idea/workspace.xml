@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="added sessionStorage">
-      <change afterPath="$PROJECT_DIR$/src/hooks/useLoading.ts" afterDir="false" />
+    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="added MUI">
+      <change afterPath="$PROJECT_DIR$/src/components/button/ButtonMUI.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/switches/darkLight/DarkLightSwitch.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/Card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/counterSection/cardBodyOfDisplayCount/CardBodyOfDisplayCount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyOfDisplayCount/CardBodyOfDisplayCount.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/counterSection/cardBodyWithSettings/CardBodyWithSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyWithSettings/CardBodyWithSettings.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +100,9 @@
       <workItem from="1733393393374" duration="1890000" />
       <workItem from="1733475542732" duration="864000" />
       <workItem from="1733494866669" duration="2875000" />
+      <workItem from="1733501893582" duration="279000" />
+      <workItem from="1733584300120" duration="29000" />
+      <workItem from="1734460436052" duration="16140000" />
     </task>
     <task id="LOCAL-00001" summary="addition++">
       <option name="closed" value="true" />
@@ -166,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733394116226</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added hook Loading">
+      <option name="closed" value="true" />
+      <created>1733502131960</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733502131960</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +225,8 @@
     <MESSAGE value="mini refactor" />
     <MESSAGE value="test refactor added useEffect 'useEffect(() =&gt; {&#10;                                       localStorage.setItem('valueCount', JSON.stringify(counter));&#10;                                   }, [counter]);' и перенесена логика из onClickIncrement в этот useEffect  localStorage.setItem('valueCount', JSON.stringify(counter + 1));" />
     <MESSAGE value="added sessionStorage" />
-    <option name="LAST_COMMIT_MESSAGE" value="added sessionStorage" />
+    <MESSAGE value="added hook Loading" />
+    <MESSAGE value="added MUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="added MUI" />
   </component>
 </project>

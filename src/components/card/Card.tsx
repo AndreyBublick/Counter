@@ -23,7 +23,7 @@ const CardStyled = styled.div`
     & > div {
         border-radius: 0.5rem;
         border: 4px solid ${(props) => props.theme.colors.accent};
-        padding: 20px 5px;
+        padding: 20px 10px;
         
     }
     &>div:first-child {

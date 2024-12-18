@@ -8,6 +8,8 @@ import {ButtonsWrapper} from "../../ButtonsWrapper";
 import {InputsWrapper} from "../../InputsWrapper";
 import {InputWrapper} from "../../InputWrapper";
 import {useLoading} from "../../../hooks/useLoading";
+import {ButtonMui} from "../../button/ButtonMUI";
+import {SettingsInputComponent} from "@mui/icons-material";
 
 
 type PropsType = {
@@ -43,7 +45,7 @@ export const CardBodyWithSettings: FC<PropsType> = ({valueFields,changeDisabledF
             <Spin style={{color: "#05f7ff"}} indicator={<LoadingOutlined spin/>} size="large"/>}
 
         <ButtonsWrapper>
-            <Button onClick={onClickSetButton} disabled={isIncorrectValue || isActiveSetButton}>set</Button>
+            <ButtonMui onClick={onClickSetButton} disabled={isIncorrectValue || isActiveSetButton}><SettingsInputComponent /></ButtonMui>
         </ButtonsWrapper>
     </>;
 };

@@ -2,8 +2,10 @@ import React, {FC, useEffect, useState} from 'react';
 import {Spin} from "antd";
 import {LoadingOutlined} from "@ant-design/icons";
 import {ButtonsWrapper} from "../../ButtonsWrapper";
-import {Button} from "../../button/Button";
+
 import styled, {css} from "styled-components";
+import {ButtonMui} from "../../button/ButtonMUI";
+import {PlusOne, RestartAlt} from "@mui/icons-material";
 
 
 type PropsType = {
@@ -40,10 +42,10 @@ export const CardBodyOfDisplayCount:FC<PropsType> = ({children,error,isMaximumVa
 
         <ButtonsWrapper>
 
-            <Button disabled={isIncorrectValue || isMaximumValueAchieved || !isActiveSetButton || !isLoad}
-                    onClick={onClickIncrement}>inc</Button>
-            <Button onClick={onClickReset}
-                    disabled={isIncorrectValue || !isActiveSetButton || !isLoad}>reset</Button>
+            <ButtonMui disabled={isIncorrectValue || isMaximumValueAchieved || !isActiveSetButton || !isLoad}
+                    onClick={onClickIncrement}><PlusOne fontSize={'large'}/></ButtonMui>
+            <ButtonMui onClick={onClickReset}
+                    disabled={isIncorrectValue || !isActiveSetButton || !isLoad}><RestartAlt fontSize={'large'}/> </ButtonMui>
             {children}
         </ButtonsWrapper>
 

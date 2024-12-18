@@ -3,8 +3,20 @@ import './App.css';
 import styled from "styled-components";
 import {CounterSection} from "./components/counterSection/CounterSection";
 import {Container} from "./components/Container";
-import {Button} from "./components/button/Button";
 import {ButtonsWrapper} from "./components/ButtonsWrapper";
+import {ButtonMui} from "./components/button/ButtonMUI";
+import {
+    AppBar,
+    createTheme,
+    CssBaseline,
+    IconButton,
+    ThemeProvider,
+    Toolbar,
+    Typography,
+    Box,
+    Switch, PaletteMode
+} from "@mui/material";
+import {DarkLightSwitcher} from "./components/switches/darkLight/DarkLightSwitch";
 
 
 type VariantsType = null | 'v1' | 'v2';
@@ -13,7 +25,7 @@ function App() {
 
     const [choice, setChoice] = useState<VariantsType>(null);
     const [isOpenCounter, setIsOpenCounter] = useState(false);
-
+    const [themeMode, setThemeMode] = useState<PaletteMode>('light');
     const onClickHandler = useCallback(() => {
         setIsOpenCounter(true);
     }, []);
@@ -42,19 +54,52 @@ function App() {
         onClickHandler();
     };
 
-    return (
+
+     const theme = createTheme({
+
+        palette: {
+            mode:themeMode,
+            primary: {
+                main: '#05f7ff',
+               /* dark: 'red',
+                light: 'green',*/
+            },
+            secondary: {
+                main: '#640db3',
+            },
+        },
+    });
+    return <>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <AppBar component="nav">
+                <Toolbar>
+
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                    >
+                        Counter
+                    </Typography>
+                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        <DarkLightSwitcher onClick={()=>{setThemeMode(prev=> prev==='light' ? 'dark' :'light')}} />
+                    </Box>
+                </Toolbar>
+            </AppBar>
         <Wrapper>
             <Container>
                 {!isOpenCounter && <> <Title>Choose a version of counter</Title>
                     <ButtonsWrapper>
-                        <Button onClick={onClickPickVariantNumber1Handler}>#1</Button>
-                        <Button onClick={onClickPickVariantNumber2Handler}>#2</Button>
+                        <ButtonMui onClick={onClickPickVariantNumber1Handler}>#1</ButtonMui>
+                        <ButtonMui onClick={onClickPickVariantNumber2Handler}>#2</ButtonMui>
                     </ButtonsWrapper></>}
                 {isOpenCounter && <CounterSection mode2={choice === 'v1'}/>}
 
             </Container>
         </Wrapper>
-    );
+        </ThemeProvider>
+    </>;
 }
 
 export default App;
@@ -69,10 +114,10 @@ const Wrapper = styled.div`
         margin: 0 auto;
     }
 
-    ${Container} > ${ButtonsWrapper} > button {
+    /*${Container} > ${ButtonsWrapper} > button {
         padding: 0 40px;
         line-height: 2;
-    }
+    }*/
 
 }
 `;
@@ -84,6 +129,8 @@ const Title = styled.h1`
     font-size: ${props => props.theme.fontSizes.big};
     margin-bottom: ${props => props.theme.spacings.big};
 `;
+
+
 
 
 

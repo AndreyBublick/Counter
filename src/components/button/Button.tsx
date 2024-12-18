@@ -5,7 +5,7 @@ export const Button:FC<ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
     return <ButtonStyled {...props} >{props.children}</ButtonStyled>
 };
 
-const ButtonStyled =styled.button `
+const ButtonStyled =styled.button`
     font-size: ${props => props.theme.fontSizes.big};
     color: ${props => props.theme.colors.primary};
     background: ${props => props.theme.colors.accent};

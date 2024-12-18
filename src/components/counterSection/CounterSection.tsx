@@ -1,12 +1,13 @@
 import React, {FC, useCallback, useEffect, useMemo, useState} from 'react';
 import styled from "styled-components";
 import {Card} from "../card/Card";
-import {Button} from "../button/Button";
 import {v1} from "uuid";
 import {getMinValue} from "../../utils/getMinValue";
 import {getMaxValue} from "../../utils/getMaxValue";
 import {CardBodyWithSettings} from "./cardBodyWithSettings/CardBodyWithSettings";
 import {CardBodyOfDisplayCount} from "./cardBodyOfDisplayCount/CardBodyOfDisplayCount";
+import {ButtonMui} from "../button/ButtonMUI";
+import {SettingsInputComponent} from "@mui/icons-material";
 
 
 const maxValueId = v1();
@@ -95,13 +96,11 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
 
     },[]);
     const onClickIncrement = useCallback(() => {
-        /*const max = valueFields.find(f => f.id === maxValueId);*/
 
 
         if (!(max && (counter === max.value))) {
 
             setCounter(prev => prev + 1);
-            /*localStorage.setItem('valueCount', JSON.stringify(counter +1));*/
 
         }
 
@@ -134,7 +133,6 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
 
     }, [valueFields,isOpenDisplayCard]);
     const checkErrorValue = useCallback(() => {
-        /*  error ? setIsActiveSetButton(true) : setIsActiveSetButton(false);*/
         setIsActiveSetButton(false);
     }, [error]);
 
@@ -142,15 +140,11 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
 
     useEffect(() => {
 
-        /*const max = valueFields.find(f => f.id === maxValueId);*/
-
         (max && max.value === counter) ? setIsMaximumValueAchieved(true) :  setIsMaximumValueAchieved(false);
 
 
     }, [counter, valueFields]);
     useEffect(() => {
-        /*const max = valueFields.find(f => f.id === maxValueId);
-        const min = valueFields.find(f => f.id === minValueId);*/
 
 
         ((min && max) && (min.value >= max.value)) && setValueFields(prev => prev.map(f => ({...f, isDisabled: true})));
@@ -173,7 +167,7 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
         setValueFields(prev => prev.map(f => f.id === maxValueId ? {...f, value: maxValue} : f));
         setCounter(valueCount);
 
-        console.log(valueCount);
+
 
 
     }, []);
@@ -193,7 +187,7 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
 
                 {!isOpenDisplayCard &&  <Card>
                     <CardBodyOfDisplayCount isActiveSetButton={isActiveSetButton} isIncorrectValue={isIncorrectValue} counter={counter} error={error} isMaximumValueAchieved={isMaximumValueAchieved} onClickReset={onClickReset} onClickIncrement={onClickIncrement}>
-                        {mode2 && <Button onClick={onClickSetButton} disabled={false}>set</Button>}
+                        {mode2 && <ButtonMui onClick={onClickSetButton} disabled={false}> <SettingsInputComponent /> </ButtonMui>}
                     </CardBodyOfDisplayCount>
                 </Card>}
             </FlexWrapper>
