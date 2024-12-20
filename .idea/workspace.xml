@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="added MUI">
-      <change afterPath="$PROJECT_DIR$/src/components/button/ButtonMUI.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/switches/darkLight/DarkLightSwitch.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Wrapper.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counterSection/cardBodyOfDisplayCount/CardBodyOfDisplayCount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyOfDisplayCount/CardBodyOfDisplayCount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counterSection/cardBodyWithSettings/CardBodyWithSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/cardBodyWithSettings/CardBodyWithSettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/Input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -54,27 +45,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/i_use/Desktop/IT-INCUBATOR/tasks/Counter/src/utils&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\i_use\\Desktop\\IT-INCUBATOR\\2sprint\\Microtasks\\Counter\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/i_use/Desktop/IT-INCUBATOR/tasks/Counter/src/utils",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\i_use\\Desktop\\IT-INCUBATOR\\2sprint\\Microtasks\\Counter\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\tasks\Counter\src\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\2sprint\Microtasks\Counter\src\components" />
       <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\2sprint\Microtasks\Counter\src\hooks" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -102,7 +113,14 @@
       <workItem from="1733494866669" duration="2875000" />
       <workItem from="1733501893582" duration="279000" />
       <workItem from="1733584300120" duration="29000" />
-      <workItem from="1734460436052" duration="16140000" />
+      <workItem from="1734460436052" duration="16243000" />
+      <workItem from="1734550759352" duration="45000" />
+      <workItem from="1734550812910" duration="283000" />
+      <workItem from="1734626280466" duration="1231000" />
+      <workItem from="1734631029354" duration="139000" />
+      <workItem from="1734631181926" duration="120000" />
+      <workItem from="1734631348842" duration="993000" />
+      <workItem from="1734718102991" duration="6007000" />
     </task>
     <task id="LOCAL-00001" summary="addition++">
       <option name="closed" value="true" />
@@ -184,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733502131960</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added MUI">
+      <option name="closed" value="true" />
+      <created>1734550696808</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734550696808</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

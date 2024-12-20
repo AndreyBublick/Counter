@@ -14,9 +14,10 @@ import {
     Toolbar,
     Typography,
     Box,
-    Switch, PaletteMode
+    Switch, PaletteMode, Theme
 } from "@mui/material";
 import {DarkLightSwitcher} from "./components/switches/darkLight/DarkLightSwitch";
+import {Wrapper} from "./components/Wrapper";
 
 
 type VariantsType = null | 'v1' | 'v2';
@@ -61,15 +62,15 @@ function App() {
             mode:themeMode,
             primary: {
                 main: '#05f7ff',
-               /* dark: 'red',
-                light: 'green',*/
+               /* dark: 'red',*/
+                light: 'rgb(59,89,97)',
             },
             secondary: {
                 main: '#640db3',
             },
         },
     });
-    return <>
+    return <AppStyled>
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <AppBar component="nav">
@@ -99,26 +100,18 @@ function App() {
             </Container>
         </Wrapper>
         </ThemeProvider>
-    </>;
+    </AppStyled>;
 }
 
 export default App;
 
-const Wrapper = styled.div`
-    padding: 100px 0;
-    min-height: 100vh;
-    background: ${props => props.theme.colors.primary};
+const AppStyled = styled.div`
 
     ${Container} > ${ButtonsWrapper} {
         max-width: 400px;
         margin: 0 auto;
     }
-
-    /*${Container} > ${ButtonsWrapper} > button {
-        padding: 0 40px;
-        line-height: 2;
-    }*/
-
+    
 }
 `;
 
