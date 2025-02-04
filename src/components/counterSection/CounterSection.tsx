@@ -8,6 +8,10 @@ import {CardBodyWithSettings} from "./cardBodyWithSettings/CardBodyWithSettings"
 import {CardBodyOfDisplayCount} from "./cardBodyOfDisplayCount/CardBodyOfDisplayCount";
 import {ButtonMui} from "../button/ButtonMUI";
 import {SettingsInputComponent} from "@mui/icons-material";
+import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
+import {getCount} from "../../bll/counter-selectors";
+import {useDispatch} from "react-redux";
+import {fetchCounterTC, incrementTC, setValueCountTC} from "../../bll/counter-reducer";
 
 
 const maxValueId = v1();
@@ -25,7 +29,13 @@ type PropsType = {
 
 
 export const CounterSection:FC<PropsType> = ({mode2}) => {
-    const [counter, setCounter] = useState(0);
+    /*const [counter, setCounter] = useState(0);*/
+
+    const counter = useAppSelector(getCount);
+
+
+const dispatch = useAppDispatch();
+
 
 
     const [valueFields, setValueFields] = useState([
@@ -100,7 +110,7 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
 
         if (!(max && (counter === max.value))) {
 
-            setCounter(prev => prev + 1);
+           dispatch(incrementTC());
 
         }
 
@@ -110,8 +120,11 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
 
         const value: number = JSON.parse(localStorage.getItem('minValue') as string);
 
-        value && setCounter(value) || value === 0 && setCounter(value);
-
+        /*value && setCounter(value) || value === 0 && setCounter(value);*/
+                if(value||value===0){
+                    console.log(value)
+                  dispatch(setValueCountTC(value));   /*setCounter(value);*/
+            }
 
         localStorage.setItem('valueCount', JSON.stringify(value));
 
@@ -120,7 +133,8 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
     const onClickSetButton = useCallback(() => {
 
         if(!mode2 || isOpenDisplayCard){
-        (min) && setCounter(min.value);
+
+        (min) && dispatch(setValueCountTC(min.value)); /*setCounter(min.value);*/
 }
         setIsActiveSetButton(true);
 
@@ -161,20 +175,20 @@ export const CounterSection:FC<PropsType> = ({mode2}) => {
 
         const minValue = JSON.parse(localStorage.getItem('minValue') as string);
         const maxValue = JSON.parse(localStorage.getItem('maxValue') as string);
-        const valueCount = JSON.parse(localStorage.getItem('valueCount') as string);
+       /* const valueCount = JSON.parse(localStorage.getItem('valueCount') as string);*///*777*/
 
         setValueFields(prev => prev.map(f => f.id === minValueId ? {...f, value: minValue} : f));
         setValueFields(prev => prev.map(f => f.id === maxValueId ? {...f, value: maxValue} : f));
-        setCounter(valueCount);
+        /*setCounter(valueCount);*/
 
-
+            dispatch(fetchCounterTC());
 
 
     }, []);
-    useEffect(() => {
+    /*useEffect(() => {
         localStorage.setItem('valueCount', JSON.stringify(counter));
 
-    }, [counter]);
+    }, [counter]);*/
 
 
     return <CounterSectionStyled>

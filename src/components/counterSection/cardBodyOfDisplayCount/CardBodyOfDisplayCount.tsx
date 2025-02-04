@@ -33,8 +33,9 @@ export const CardBodyOfDisplayCount:FC<PropsType> = ({children,error,isMaximumVa
         }, 1000);
     }, []);
 
-    return <>
 
+
+    return <>
         {isLoad ? <Counter
             isError={isMaximumValueAchieved || !!error || !isActiveSetButton}>
             {(isIncorrectValue) ? (error && error) : isActiveSetButton ? counter : 'click set Button'}

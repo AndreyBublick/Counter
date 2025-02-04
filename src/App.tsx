@@ -32,7 +32,6 @@ function App() {
     }, []);
 
     useEffect(() => {
-
         let  result = sessionStorage.getItem('variant');
 
         /*as VariantsType*/
