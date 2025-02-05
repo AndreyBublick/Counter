@@ -1,59 +1,50 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import './App.css';
 import styled from "styled-components";
 import {CounterSection} from "./components/counterSection/CounterSection";
 import {Container} from "./components/Container";
 import {ButtonsWrapper} from "./components/ButtonsWrapper";
 import {ButtonMui} from "./components/button/ButtonMUI";
-import {
-    AppBar,
-    createTheme,
-    CssBaseline,
-    IconButton,
-    ThemeProvider,
-    Toolbar,
-    Typography,
-    Box,
-    Switch, PaletteMode, Theme
-} from "@mui/material";
+import {AppBar, Box, createTheme, CssBaseline, ThemeProvider, Toolbar, Typography} from "@mui/material";
 import {DarkLightSwitcher} from "./components/switches/darkLight/DarkLightSwitch";
 import {Wrapper} from "./components/Wrapper";
+import {Version} from "./common/enums";
+import {useAppDispatch, useAppSelector} from "./hooks/hooks";
+import {getThemeMode, getVersionCounter} from "./bll/app-selectors";
+import {changeThemeMode, changeVersionCounter} from "./app/app-reducer";
 
-
-type VariantsType = null | 'v1' | 'v2';
 
 function App() {
 
-    const [choice, setChoice] = useState<VariantsType>(null);
+    /*const [choice, setChoice] = useState<Version>(Version.notChoice);*/
     const [isOpenCounter, setIsOpenCounter] = useState(false);
-    const [themeMode, setThemeMode] = useState<PaletteMode>('light');
-    const onClickHandler = useCallback(() => {
+    /*const [themeMode, setThemeMode] = useState<PaletteMode>('light');*/
+        const version = useAppSelector(getVersionCounter);
+        const themeMode = useAppSelector(getThemeMode);
+        const dispatch = useAppDispatch();
+
+
+
+
+
+    const changeFirstVersion = useCallback(() => {
+
+        dispatch(changeVersionCounter(Version.v1));
         setIsOpenCounter(true);
-    }, []);
+    },[dispatch]);
 
-    useEffect(() => {
-        let  result = sessionStorage.getItem('variant');
+    const changeSecondVersion = useCallback(() => {
+        dispatch(changeVersionCounter(Version.v2));
+        setIsOpenCounter(true);
+    },[dispatch]);
 
-        /*as VariantsType*/
 
-        if(result!=='null' && result!==null){
-           setChoice(result as VariantsType);
-           onClickHandler();
-       }
 
-    }, []);
+    const changeTheme = useCallback(() => {
+        dispatch(changeThemeMode(themeMode==='light' ? 'dark' :'light'));
 
-    const onClickPickVariantNumber1Handler = () => {
-        setChoice('v1');
-        sessionStorage.setItem('variant', 'v1');
-        onClickHandler();
-    };
-    const onClickPickVariantNumber2Handler = () => {
-        setChoice('v2');
-        sessionStorage.setItem('variant', 'v2');
-        onClickHandler();
-    };
 
+    },[themeMode,dispatch]);
 
      const theme = createTheme({
 
@@ -83,7 +74,7 @@ function App() {
                         Counter
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        <DarkLightSwitcher onClick={()=>{setThemeMode(prev=> prev==='light' ? 'dark' :'light')}} />
+                        <DarkLightSwitcher onClick={changeTheme} />
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -91,10 +82,10 @@ function App() {
             <Container>
                 {!isOpenCounter && <> <Title>Choose a version of counter</Title>
                     <ButtonsWrapper>
-                        <ButtonMui onClick={onClickPickVariantNumber1Handler}>#1</ButtonMui>
-                        <ButtonMui onClick={onClickPickVariantNumber2Handler}>#2</ButtonMui>
+                        <ButtonMui onClick={changeFirstVersion}>#1</ButtonMui>
+                        <ButtonMui onClick={changeSecondVersion}>#2</ButtonMui>
                     </ButtonsWrapper></>}
-                {isOpenCounter && <CounterSection mode2={choice === 'v1'}/>}
+                {isOpenCounter && <CounterSection mode2={version === Version.v1}/>}
 
             </Container>
         </Wrapper>

@@ -1,51 +1,76 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useCallback} from 'react';
 import {Input} from "../../input/Input";
 import {Spin} from "antd";
 import {LoadingOutlined} from "@ant-design/icons";
-import {Button} from "../../button/Button";
-import {valueFieldType} from "../CounterSection";
 import {ButtonsWrapper} from "../../ButtonsWrapper";
 import {InputsWrapper} from "../../InputsWrapper";
 import {InputWrapper} from "../../InputWrapper";
 import {useLoading} from "../../../hooks/useLoading";
 import {ButtonMui} from "../../button/ButtonMUI";
 import {SettingsInputComponent} from "@mui/icons-material";
+import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
+import {getMaxValueS, getMinValueS} from "../../../bll/counter-selectors";
+import {setMaxValueTC, setMinValueTC} from "../../../bll/counter-reducer";
 
 
 type PropsType = {
-    valueFields: valueFieldType[],
     isActiveSetButton: boolean,
     isIncorrectValue: boolean,
 
-    changeDisabledField: (idField: string, newValueDisabled: boolean) => void,
-    changeValueField: (idField: string, newValue: number) => void,
     checkErrorValue: () => void,
     onClickSetButton: () => void,
 
 };
 
-export const CardBodyWithSettings: FC<PropsType> = ({valueFields,changeDisabledField, changeValueField, checkErrorValue, isIncorrectValue, onClickSetButton, isActiveSetButton}) => {
+export const CardBodyWithSettings: FC<PropsType> = ({ checkErrorValue, isIncorrectValue, onClickSetButton, isActiveSetButton}) => {
 
     const {isLoad} = useLoading();
+    const maxValue = useAppSelector(getMaxValueS);
+    const minValue = useAppSelector(getMinValueS);
+
+   const  dispatch = useAppDispatch();
+
+   const setMaxValue = useCallback((value:number)=>{
+       dispatch(setMaxValueTC(value));
+   },[]);
+    const setMinValue = useCallback((value:number)=>{
+        dispatch(setMinValueTC(value));
+    },[]);
 
     return <>
         {isLoad ?
-            <InputsWrapper>{valueFields.map(field => <InputWrapper key={field.id}><label>{field.title}</label>
-                <Input
-                    changeDisabledField={changeDisabledField}
-                    changeValueField={changeValueField}
-                    checkErrorValue={checkErrorValue}
-                    isIncorrectValue={isIncorrectValue}
-                    id={field.id}
-                    type="number"
-                    value={field.value}
-                />
-            </InputWrapper>)}
+            <InputsWrapper>
+                <InputWrapper >
+                <label>max-value</label>
+                    <Input
+                        onChangeValueField={setMaxValue}
+                        checkErrorValue={checkErrorValue}
+                        isIncorrectValue={isIncorrectValue}
+
+                        type="number"
+                        value={maxValue}
+                    />
+
+                </InputWrapper>
+                <InputWrapper >
+                    <label>min-value</label>
+                    <Input
+                        onChangeValueField={setMinValue}
+                        checkErrorValue={checkErrorValue}
+                        isIncorrectValue={isIncorrectValue}
+
+                        type="number"
+                        value={minValue}
+                    />
+
+                </InputWrapper>
             </InputsWrapper> :
             <Spin style={{color: "#05f7ff"}} indicator={<LoadingOutlined spin/>} size="large"/>}
 
         <ButtonsWrapper>
-            <ButtonMui onClick={onClickSetButton} disabled={isIncorrectValue || isActiveSetButton}><SettingsInputComponent /></ButtonMui>
+            <ButtonMui onClick={onClickSetButton} disabled={isIncorrectValue || isActiveSetButton}>
+                <SettingsInputComponent />
+            </ButtonMui>
         </ButtonsWrapper>
     </>;
 };
