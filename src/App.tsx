@@ -91,7 +91,7 @@ function App() {
                                  sx={{width: 'auto'}}>
                         {!isOpenCounter && <InputLabel sx={{position: 'absolute', top: -4, left: -4}}
                                                        id="version">Version</InputLabel>}
-                        <Select
+                        <Select variant={'outlined'}
                             labelId="version"
 
                             value={version}
