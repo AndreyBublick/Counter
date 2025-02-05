@@ -9,7 +9,7 @@ const SET_MAX_VALUE_COUNT = 'SET_MAX_VALUE_COUNT';
 
 const initialState = {
     count: 0,
-    maxValue: 0,
+    maxValue: 1,
     minValue: 0,
 
 };
@@ -51,8 +51,7 @@ export const setMinValueAC = (value: number) => ({type: SET_MIN_VALUE_COUNT, val
 export const fetchCounterTC = () => async (dispatch: AppDispatch) => {
     try {
         const valueCount = await JSON.parse(localStorage.getItem('valueCount') as string);
-
-        dispatch(setValueCountAC(valueCount));
+        valueCount!==null && dispatch(setValueCountAC(valueCount));
     } catch (error) {
         alert(error);
     }
@@ -61,7 +60,7 @@ export const fetchMaxValueTC = () => async (dispatch: AppDispatch) => {
     try {
         const max = await JSON.parse(localStorage.getItem('maxValue') as string);
 
-        dispatch(setMaxValueAC(max));
+        max!==null && dispatch(setMaxValueAC(max));
     } catch (error) {
         alert(error);
     }
@@ -70,7 +69,7 @@ export const fetchMinValueTC = () => async (dispatch: AppDispatch) => {
     try {
         const min = await JSON.parse(localStorage.getItem('minValue') as string);
 
-        dispatch(setMinValueAC(min));
+        min!==null && dispatch(setMinValueAC(min));
     } catch (error) {
         alert(error);
     }

@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="refactor MUI">
-      <change afterPath="$PROJECT_DIR$/src/bll/counter-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bll/counter-selectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bll/store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/hooks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counterSection/CounterSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="249c6b11-a754-4008-97b4-3a346b7bf4fa" name="Changes" comment="refactor Redux v.0.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +33,9 @@
     &quot;accountId&quot;: &quot;56031a61-53e0-468e-95e8-f61d70cb5f3c&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -51,22 +44,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/i_use/Desktop/IT-INCUBATOR/tasks/Counter/src/utils",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\i_use\\Desktop\\IT-INCUBATOR\\4sprint\\Tasks\\Counter\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/i_use/Desktop/IT-INCUBATOR/tasks/Counter/src/utils&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.deploy.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\i_use\\Desktop\\IT-INCUBATOR\\4sprint\\Tasks\\Counter\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\tasks\Counter\src\utils" />
@@ -76,7 +70,17 @@
       <recent name="C:\Users\i_use\Desktop\IT-INCUBATOR\2sprint\Microtasks\Counter\src\hooks" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -89,6 +93,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -129,7 +134,7 @@
       <workItem from="1734718102991" duration="6122000" />
       <workItem from="1735239792921" duration="3000" />
       <workItem from="1735491378559" duration="30000" />
-      <workItem from="1738681996889" duration="4946000" />
+      <workItem from="1738681996889" duration="30877000" />
     </task>
     <task id="LOCAL-00001" summary="addition++">
       <option name="closed" value="true" />
@@ -227,7 +232,31 @@
       <option name="project" value="LOCAL" />
       <updated>1734725391655</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="refactor Redux v.0.1">
+      <option name="closed" value="true" />
+      <created>1738696916098</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1738696916098</updated>
+    </task>
+    <task id="LOCAL-00014" summary="refactor Redux v.0.2">
+      <option name="closed" value="true" />
+      <created>1738744660043</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1738744660043</updated>
+    </task>
+    <task id="LOCAL-00015" summary="refactor Redux v.0.3">
+      <option name="closed" value="true" />
+      <created>1738749844832</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1738749844832</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +300,9 @@
     <MESSAGE value="added hook Loading" />
     <MESSAGE value="added MUI" />
     <MESSAGE value="refactor MUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor MUI" />
+    <MESSAGE value="refactor Redux v.0.1" />
+    <MESSAGE value="refactor Redux v.0.2" />
+    <MESSAGE value="refactor Redux v.0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor Redux v.0.3" />
   </component>
 </project>
